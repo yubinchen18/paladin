@@ -8,20 +8,20 @@ var connection = require('../database');
 /**
  * ALL ROUTES:
  * /
- * /agencies
- * /agencies/{agencyTag}
- * /agencies/{agencyTag}/routes                                         (optional with ?verbose&terse)
- * /agencies/{agencyTag}/routes/{routeTag}                              (optional with ?verbose&terse)
- * /agencies/{agencyTag}/routes/{routeTag}/stopIds/{stopId}
- * /agencies/{agencyTag}/routes/{routeTag}/stopTags/{stopTag}
- * /agencies/{agencyTag}/stopIds/{stopId}
- * /agencies/{agencyTag}/stopTags/{stopTags}                            (multiple stopTags can be used, seperate with '-')
- * /agencies/{agencyTag}/routes/{routeTag}/schedules
- * /agencies/{agencyTag}/routes/{routeTag}/vehicleLocations/{lastTime}  (lastTime is optional and defaults 0)
- * /agencies/{agencyTag}/messages               
- * /agencies/{agencyTag}/messages/{routeTag}                            (multiple routeTags can be used, seperate with '-')
- * /requests
- * /slowest
+ * api/agencies
+ * api/agencies/{agencyTag}
+ * api/agencies/{agencyTag}/routes                                         (optional with ?verbose&terse)
+ * api/agencies/{agencyTag}/routes/{routeTag}                              (optional with ?verbose&terse)
+ * api/agencies/{agencyTag}/routes/{routeTag}/stopIds/{stopId}             (optional with ?useShortTitles=true)
+ * api/agencies/{agencyTag}/routes/{routeTag}/stopTags/{stopTag}           (optional with ?useShortTitles=true)
+ * api/agencies/{agencyTag}/stopIds/{stopId}                               (optional with ?useShortTitles=true)
+ * api/agencies/{agencyTag}/stopTags/{stopTags}                            (multiple stopTags can be used, seperate with '-', optional with ?useShortTitles=true))
+ * api/agencies/{agencyTag}/routes/{routeTag}/schedules
+ * api/agencies/{agencyTag}/routes/{routeTag}/vehicleLocations/{lastTime}  (lastTime is optional and defaults 0)
+ * api/agencies/{agencyTag}/messages               
+ * api/agencies/{agencyTag}/messages/{routeTag}                            (multiple routeTags can be used, seperate with '-')
+ * api/requests
+ * api/slowest
  * 
  */
 
@@ -190,7 +190,7 @@ router.get('/agencies/:agencyTag/routes/:routeTag', cache(120), function(req, re
 
 /*
  * predictions
- * StopId view of a route of an agency
+ * StopId view of a route of an agency, with option for ?useShortTitles=true
  * http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
  */
 router.get('/agencies/:agencyTag/routes/:routeTag/stopIds/:stopId', cache(120), function(req, res, next) {
