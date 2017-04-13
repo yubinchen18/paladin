@@ -6,6 +6,20 @@
     <br>
     <p>Here's a list of routes for the enhanced Nextbus API</p>
     <ul>
-        <li>asdf</li>
+        <li>/api</li>
+        <li>/api/agencies</li>
+        <li>/api/agencies/{agencyTag}</li>
+        <li>/api/agencies/{agencyTag}/routes                                         (optional with ?verbose&terse)</li>
+        <li>/api/agencies/{agencyTag}/routes/{routeTag}                              (optional with ?verbose&terse)</li>
+        <li>/api/agencies/{agencyTag}/routes/{routeTag}/stopIds/{stopId}             (optional with ?useShortTitles=true)</li>
+        <li>/api/agencies/{agencyTag}/routes/{routeTag}/stopTags/{stopTag}           (optional with ?useShortTitles=true)</li>
+        <li>/api/agencies/{agencyTag}/stopIds/{stopId}                               (optional with ?useShortTitles=true)</li>
+        <li>/api/agencies/{agencyTag}/stopTags/{stopTags}                            (multiple stopTags can be used, seperate with '-', optional with ?useShortTitles=true))</li>
+        <li>/api/agencies/{agencyTag}/routes/{routeTag}/schedules</li>
+        <li>/api/agencies/{agencyTag}/routes/{routeTag}/vehicleLocations/{lastTime}  (lastTime is optional and defaults 0)</li>
+        <li>/api/agencies/{agencyTag}/messages</li>               
+        <li>/api/agencies/{agencyTag}/messages/{routeTag}                            (multiple routeTags can be used, seperate with '-')</li>
+        <li>/api/requests</li>
+        <li>/api/slowest</li>
     </ul>
 {% endblock %}

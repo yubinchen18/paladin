@@ -7,7 +7,7 @@ var connection = require('../database');
 
 /**
  * ALL ROUTES:
- * /
+ * api
  * api/agencies
  * api/agencies/{agencyTag}
  * api/agencies/{agencyTag}/routes                                         (optional with ?verbose&terse)
